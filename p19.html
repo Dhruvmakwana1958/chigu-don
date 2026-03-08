@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+    }
+    form {
+      background-color: #ffffff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #spanans {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2a2a2a;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <label>Number 1</label>
+    <input type="text" id="txtnum1" placeholder="Number 1"/>
+    <label>Number 2</label>
+    <input type="text" id="txtnum2" placeholder="Number 2"/>
+
+    <label>Select operation</label>
+    <select id="num">
+      <option value="">-- Select --</option>
+      <option value="Add">+</option>
+      <option value="Sub">-</option>
+      <option value="Mul">*</option>
+      <option value="Div">/</option>
+    </select>
+
+    <button type="button" id="calculate">Calculate</button>
+
+    <label>Answer: <span id="spanans"></span></label>
+  </form>
+
+  <script>
+    document.querySelector("#calculate").addEventListener("click", function () {
+      let n1 = parseFloat(document.querySelector("#txtnum1").value);
+      let n2 = parseFloat(document.querySelector("#txtnum2").value);
+      let operation = document.querySelector("#num").value;
+      let ans = "";
+
+      if (operation === "Add") {
+        ans = n1 + n2;
+      } else if (operation === "Sub") {
+        ans = n1 - n2;
+      } else if (operation === "Mul") {
+        ans = n1 * n2;
+      } else if (operation === "Div") {
+        if (n2 !== 0) {
+          ans = n1 / n2;
+        } else {
+          ans = "Cannot divide by 0";
+        }
+      } else {
+        ans = "Please select an operation";
+      }
+
+      document.querySelector("#spanans").innerText = ans;
+    });
+  </script>
+
+</body>
+</html>

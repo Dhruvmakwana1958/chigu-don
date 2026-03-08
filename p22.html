@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+</head>
+<body>
+
+  <h2>Simple Form</h2>
+
+  Address: <br>
+  <input type="text" id="address">
+  <span id="addressMsg" style="color:red;"></span>
+  <br><br>
+
+  Password: <br>
+  <input type="password" id="password">
+  <span id="passwordMsg" style="color:red;"></span>
+  <br><br>
+ 
+  Retype Password: <br>
+  <input type="password" id="retype">
+  <span id="retypeMsg" style="color:red;"></span>
+  <span id="passMsg" style="color:red;"></span>
+  <br><br>
+
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    let submitBtn = document.querySelector("#submitBtn");
+    let address = document.querySelector("#address");
+    let password = document.querySelector("#password");
+    let retype = document.querySelector("#retype");
+    let addressMsg = document.querySelector("#addressMsg");
+    let passwordMsg = document.querySelector("#passwordMsg");
+    let retypeMsg = document.querySelector("#retypeMsg");
+    let passMsg = document.querySelector("#passMsg");
+
+    submitBtn.addEventListener("click", function () {
+      // Reset all messages
+      addressMsg.textContent = "";
+      passwordMsg.textContent = "";
+      retypeMsg.textContent = "";
+      passMsg.textContent = "";
+
+      if (address.value === "") {
+        addressMsg.textContent = "* Address is required";
+      }
+
+      if (password.value === "") {
+        passwordMsg.textContent = "* Password is required";
+      }
+
+      if (retype.value === "") {
+        retypeMsg.textContent = "* Re-enter password";
+      }
+
+      if (password.value !== "" && retype.value !== "" && password.value !== retype.value) {
+        passMsg.textContent = "* Passwords do not match";
+      }
+    });
+  </script>
+
+</body>
+</html>

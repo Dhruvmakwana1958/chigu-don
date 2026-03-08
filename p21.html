@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Textbox and Button</title>
+</head>
+<body>
+  <h2>Enter Something:</h2>
+  <input type="text" id="myInput" placeholder="Name here..."> 
+  <span id="spanname"></span>
+  <button id="myButton">Click Me</button> 
+
+  <script>
+    const button = document.querySelector('#myButton');
+    const input = document.querySelector('#myInput');
+    const spanname = document.querySelector('#spanname');
+
+    button.addEventListener('click', function() {
+      const inputValue = input.value;
+      if (inputValue === "") {
+        spanname.innerHTML = "*";
+      } else {
+        spanname.innerHTML = "";
+      }
+    });
+  </script>
+</body>
+</html>

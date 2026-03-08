@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Form - No JavaScript</title>
+  </head>
+
+  <body>
+    <h2>HTML FORM</h2>
+
+    <!-- You can keep the form or remove it since you're using a button -->
+    <form action="#" method="post">
+      <label for="num">Enter a number:</label><br />
+      <input type="number" id="num" name="num" required /><br /><br />
+
+      <input type="button" value="Click me" id="btnans" /><br /><br />
+
+      <label for="output">Answer:</label><br />
+      <span id="spanans"></span>
+    </form>
+
+    <script>
+      let txtnum = document.querySelector("#num");
+      let btnans = document.querySelector("#btnans");
+      let spanans = document.querySelector("#spanans");
+
+      btnans.addEventListener("click", () => {
+        let no = parseInt(txtnum.value);
+        let str = "";
+        for (let i = 1; i <= no; i++) {
+          str += i + "<br>";
+        }
+        spanans.innerHTML = str;
+      });
+    </script>
+  </body>
+</html>
